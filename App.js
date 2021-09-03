@@ -16,87 +16,104 @@ const str =
 const App = () => {
   const [more, setMore] = useState(true);
   return (
-    <ScrollView style={styles.container}>
-      <StatusBar backgroundColor="purple" />
-      <Pressable onPress={() => BackHandler.exitApp()}>
-        <Image source={require('./assets/back.png')} />
-      </Pressable>
-      <View style={styles.header}>
-        <Image style={styles.thumbnail} source={require('./assets/home.png')} />
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}>
-            How to clear FRA without coaching- Vision IAS
+    <View
+      style={{
+        backgroundColor: 'white',
+        flex: 1,
+      }}>
+      <ScrollView style={styles.container}>
+        <StatusBar backgroundColor="purple" />
+        <Pressable onPress={() => BackHandler.exitApp()}>
+          <Image source={require('./assets/back.png')} />
+        </Pressable>
+        <View style={styles.header}>
+          <Image
+            style={styles.thumbnail}
+            source={require('./assets/home.png')}
+          />
+          <View style={styles.titleWrapper}>
+            <Text style={styles.title}>
+              How to clear FRA without coaching- Vision IAS
+            </Text>
+            <View style={styles.video}>
+              <Image
+                style={styles.videoIcon}
+                source={require('./assets/play.png')}
+              />
+              <Text>10 Videos</Text>
+            </View>
+          </View>
+        </View>
+
+        <View>
+          <Text style={{...styles.title, marginTop: 10, marginBottom: 10}}>
+            Introduction
           </Text>
-          <View style={styles.video}>
+          <Text>
+            {str.slice(0, more ? 100 : str.length)}
+
+            <Text onPress={() => setMore(!more)} style={styles.seemore}>
+              {more ? '..see more' : ' show less'}
+            </Text>
+          </Text>
+        </View>
+
+        <Card title={'Fundamental Theorem of Arithmetic'} summary="10 Tests">
+          <View style={{flexDirection: 'row', padding: 10}}>
             <Image
-              style={styles.videoIcon}
-              source={require('./assets/play.png')}
+              style={styles.lock}
+              source={require('./assets/lockgreen.png')}
             />
-            <Text>10 Videos</Text>
+            <Text>Prime factorization Exercise</Text>
           </View>
-        </View>
-      </View>
-
-      <View>
-        <Text style={{...styles.title, marginTop: 10, marginBottom: 10}}>
-          Introduction
-        </Text>
-        <Text>
-          {str.slice(0, more ? 100 : str.length)}
-
-          <Text onPress={() => setMore(!more)} style={styles.seemore}>
-            {more ? '..see more' : ' show less'}
-          </Text>
-        </Text>
-      </View>
-
-      <Card title={'Fundamental Theorem of Arithmetic'} summary="10 Tests">
-        <View style={{flexDirection: 'row', padding: 10}}>
-          <Image
-            style={styles.lock}
-            source={require('./assets/lockgreen.png')}
-          />
-          <Text>Prime factorization Exercise</Text>
-        </View>
-        <View style={{flexDirection: 'row', padding: 10}}>
-          <Image
-            style={styles.lock}
-            source={require('./assets/lockgreen.png')}
-          />
-          <Text>Fill in the blacks</Text>
-        </View>
-        <View style={{flexDirection: 'row', padding: 10, alignItems: 'center'}}>
-          <Image style={styles.lock} source={require('./assets/lockred.png')} />
-          <View>
-            <Text>Match the following</Text>
-            <Text>starts 14 March</Text>
+          <View style={{flexDirection: 'row', padding: 10}}>
+            <Image
+              style={styles.lock}
+              source={require('./assets/lockgreen.png')}
+            />
+            <Text>Fill in the blacks</Text>
           </View>
-        </View>
-      </Card>
-      <Card title={'HCF and LCM'} summary="10 Test">
-        <View style={{flexDirection: 'row', padding: 10}}>
-          <Image
-            style={styles.lock}
-            source={require('./assets/lockgreen.png')}
-          />
-          <Text>Prime factorization Exercise</Text>
-        </View>
-        <View style={{flexDirection: 'row', padding: 10}}>
-          <Image
-            style={styles.lock}
-            source={require('./assets/lockgreen.png')}
-          />
-          <Text>Fill in the blacks</Text>
-        </View>
-        <View style={{flexDirection: 'row', padding: 10, alignItems: 'center'}}>
-          <Image style={styles.lock} source={require('./assets/lockred.png')} />
-          <View>
-            <Text>Match the following</Text>
-            <Text>starts 14 March</Text>
+          <View
+            style={{flexDirection: 'row', padding: 10, alignItems: 'center'}}>
+            <Image
+              style={styles.lock}
+              source={require('./assets/lockred.png')}
+            />
+            <View>
+              <Text>Match the following</Text>
+              <Text>starts 14 March</Text>
+            </View>
           </View>
-        </View>
-      </Card>
-    </ScrollView>
+        </Card>
+        <Card title={'HCF and LCM'} summary="10 Test">
+          <View style={{flexDirection: 'row', padding: 10}}>
+            <Image
+              style={styles.lock}
+              source={require('./assets/lockgreen.png')}
+            />
+            <Text>Prime factorization Exercise</Text>
+          </View>
+          <View style={{flexDirection: 'row', padding: 10}}>
+            <Image
+              style={styles.lock}
+              source={require('./assets/lockgreen.png')}
+            />
+            <Text>Fill in the blacks</Text>
+          </View>
+          <View
+            style={{flexDirection: 'row', padding: 10, alignItems: 'center'}}>
+            <Image
+              style={styles.lock}
+              source={require('./assets/lockred.png')}
+            />
+            <View>
+              <Text>Match the following</Text>
+              <Text>starts 14 March</Text>
+            </View>
+          </View>
+        </Card>
+      </ScrollView>
+    </View>
   );
 };
 
